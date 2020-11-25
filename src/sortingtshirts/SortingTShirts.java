@@ -34,11 +34,36 @@ public class SortingTShirts {
 //        TShirt randomTShirt = new RandomTShirt();
 //        System.out.println(randomTShirt);
         
-        int numberOfRandomTShirts = 10;
-        List<RandomTShirt> randomTShirts = new ArrayList<>(numberOfRandomTShirts);
+        int numberOfRandomTShirts = 5;
+        System.out.println("Original Array");
+        List<TShirt> randomTShirts = new ArrayList<>(numberOfRandomTShirts);
         for (int i = 0; i < numberOfRandomTShirts; i++) {
             randomTShirts.add(new RandomTShirt());
             System.out.println(randomTShirts.get(i));
+        }
+        
+//        System.out.println("\nSorted Array By Size Ascending");
+//        List<TShirt> bubbleSortRandomTShirtsBySize = s.bubbleSortTShirtsBySize(randomTShirts,0);
+//        for (int i = 0; i < numberOfRandomTShirts; i++) {
+//            System.out.println(bubbleSortRandomTShirtsBySize.get(i));
+//        }
+//        
+//        System.out.println("\nSorted Array By Size Descending");
+//        List<TShirt> bubbleSortRandomTShirtsBySize1 = s.bubbleSortTShirtsBySize(randomTShirts,1);
+//        for (int i = 0; i < numberOfRandomTShirts; i++) {
+//            System.out.println(bubbleSortRandomTShirtsBySize1.get(i));
+//        }
+        
+        System.out.println("\nSorted Array By Color Ascending");
+        List<TShirt> bubbleSortRandomTShirtsBySize2 = s.bubbleSortTShirtsByColor(randomTShirts,0);
+        for (int i = 0; i < numberOfRandomTShirts; i++) {
+            System.out.println(bubbleSortRandomTShirtsBySize2.get(i));
+        }
+        
+        System.out.println("\nSorted Array By Color Descending");
+        List<TShirt> bubbleSortRandomTShirtsBySize3 = s.bubbleSortTShirtsByColor(randomTShirts,1);
+        for (int i = 0; i < numberOfRandomTShirts; i++) {
+            System.out.println(bubbleSortRandomTShirtsBySize3.get(i));
         }
     }
 }
