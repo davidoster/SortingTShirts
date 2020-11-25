@@ -98,4 +98,38 @@ public class Sort {
          
         return(arr2);
     } 
+    
+     public List<TShirt> bubbleSortTShirtsByFabric(List<TShirt> arr, int sortingType) // sortingType = 0 - ASC
+                                                                                   // sortingType = 1 - DESC
+    { 
+        List<TShirt> arr2 = new ArrayList<>(arr);
+        int n = arr2.size(); 
+        switch(sortingType) {
+            case 0:
+                for (int i = 0; i < n-1; i++) 
+                    for (int j = 0; j < n-i-1; j++) 
+                        if (arr2.get(j).getFabric().ordinal() > arr2.get(j+1).getFabric().ordinal()) 
+                        { 
+                            // swap arr[j+1] and arr[j] 
+                            TShirt temp = arr2.get(j); 
+                            arr2.set(j, arr2.get(j+1));  // arr[j] <- arr[j+1]
+                            arr2.set(j+1, temp); // arr[j+1] = temp; 
+                        }
+                break;
+            case 1:
+                for (int i = 0; i < n-1; i++) 
+                    for (int j = 0; j < n-i-1; j++) 
+                        if (arr2.get(j).getFabric().ordinal() < arr2.get(j+1).getFabric().ordinal()) 
+                        { 
+                            // swap arr[j+1] and arr[j] 
+                            TShirt temp = arr2.get(j); 
+                            arr2.set(j, arr2.get(j+1));  // arr[j] <- arr[j+1]
+                            arr2.set(j+1, temp); // arr[j+1] = temp; 
+                        }
+                break;
+        }
+        
+         
+        return(arr2);
+    } 
 }
