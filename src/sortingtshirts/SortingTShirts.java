@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Arrays;
 import models.TShirt;
 import printing.Print;
-import random.RandomTShirt;
+import models.random.RandomTShirt;
 import sort.Sort;
 /**
  *
