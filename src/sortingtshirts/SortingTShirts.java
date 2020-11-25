@@ -8,7 +8,9 @@ package sortingtshirts;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
+import models.TShirt;
 import printing.Print;
+import random.RandomTShirt;
 import sort.Sort;
 /**
  *
@@ -23,10 +25,20 @@ public class SortingTShirts {
         Print p = new Print();
         Sort s = new Sort();
         
-        List<Integer> integers = new ArrayList<>();
-        integers = Arrays.asList(new Integer[] {5,2,88,1,29,6,13});
- 
-        p.printArray(integers);
-        p.printArray(s.bubbleSort(integers));
+//        List<Integer> integers = new ArrayList<>();
+//        integers = Arrays.asList(new Integer[] {5,2,88,1,29,6,13});
+// 
+//        p.printArray(integers);
+//        p.printArray(s.bubbleSort(integers));
+        
+//        TShirt randomTShirt = new RandomTShirt();
+//        System.out.println(randomTShirt);
+        
+        int numberOfRandomTShirts = 10;
+        List<RandomTShirt> randomTShirts = new ArrayList<>(numberOfRandomTShirts);
+        for (int i = 0; i < numberOfRandomTShirts; i++) {
+            randomTShirts.add(new RandomTShirt());
+            System.out.println(randomTShirts.get(i));
+        }
     }
 }
