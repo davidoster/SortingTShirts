@@ -6,7 +6,9 @@
 package sort;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Vector;
 import models.TShirt;
 
 /**
@@ -32,7 +34,7 @@ public class Sort {
         }
         return (arr2);
     }
-
+    
     private List<TShirt> bubbleSortTShirtsBySize(List<TShirt> arr, int sortingType) // sortingType = 0 - ASC
     // sortingType = 1 - DESC
     {
@@ -294,5 +296,31 @@ public class Sort {
                     break;
             }
         }
+    }
+    
+    
+    // Step 1: divide to n + 1 buckets as the number of elements, 
+        // e.g. if we have 10 elements then we create 10 buckets
+        
+        // Step 2: place similar data to each bucket, 
+        // e.g. 1: { 10, 11, 22, 2, 19, 3, 17}
+        // n = 7, b[0], b[1], b[2], b[3], b[4], b[5], b[6], b[7]
+        // b[1] = { 10, 11, 19, 17}
+        // b[2] = { 22, 2 }
+        // b[3] = { 3 }
+        
+        // e.g. 2: { 0, 0, 1, 3, 0, 4, 2, 3 }
+        // int n = randomTShirts.size();
+        // List<TShirt>[] buckets = new List<TShirt>[randomTShirts.size()]();
+        // b[0] = { 0, 0, 0 }
+        // b[1] = { 1, 1, 1, 1, 1 } <----- randomTShirts.get(22).getSize().ordinal() = 1
+        // b[2] = { 2 }
+        // b[3] = { 3, 3 }
+        // b[4] = { 4 }
+        
+        // Step 3: sort each bucket ??????????
+    public void bucketSortTShirts(List<TShirt> arr, int n) 
+    { 
+        
     }
 }
