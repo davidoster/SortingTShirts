@@ -24,13 +24,15 @@ public class SortingTShirts {
     public static void main(String[] args) {
         Print p = new Print();
         Sort s = new Sort();
-        int numberOfRandomTShirts = 4000;
+        int numberOfRandomTShirts = 4;
         System.out.println("Original Array");
         List<TShirt> randomTShirts = new ArrayList<>(numberOfRandomTShirts);
         for (int i = 0; i < numberOfRandomTShirts; i++) {
             randomTShirts.add(new RandomTShirt());
 //            System.out.println(randomTShirts.get(i));
         }
+        
+        s.bucketSortTShirtsBySizeThenColorThenFabric(randomTShirts, 0);
         
         System.out.println("\nBucket Sorted Array By Size Ascending");
         Timer bucketTimer = new Timer();

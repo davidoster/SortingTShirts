@@ -6,6 +6,7 @@
 package sort;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import models.TShirt;
 import models.enums.Size;
@@ -356,5 +357,51 @@ public class Sort {
 //                }
 //            }
         }
+    }
+
+    public void bucketSortTShirtsBySizeThenColorThenFabric(List<TShirt> randomTShirts, int sortingType) {
+        // Step 1 - Create buckets, Size.length
+        int noOfBuckets = Size.values().length;
+
+        // Step 1, create noOfBuckets buckets  
+        List<TShirt>[] buckets = new ArrayList[noOfBuckets];
+        for (int i = 0; i < noOfBuckets; i++) { // noOfBuckets
+            buckets[i] = new ArrayList<TShirt>(); // initialize the buckets
+        }
+
+        // Step 2, divide into buckets
+        for (TShirt tShirt : randomTShirts) {
+            buckets[tShirt.getSize().ordinal()].add(tShirt);
+        }
+        
+        // combine all the buckets to 1 List
+        List<TShirt> tShirts0 = new ArrayList<>();
+        List<TShirt>[] buckets0 = new ArrayList[noOfBuckets];
+        for (int i = 0; i < noOfBuckets; i++) { // noOfBuckets
+            buckets0[i] = new ArrayList<TShirt>(); // initialize the buckets
+        }
+        buckets0 = buckets;
+        for (int i = 0; i < noOfBuckets; i++) {
+            bucketSortTShirts(buckets0[i], 1, 0);
+        }
+        for (List<TShirt> bucket : buckets0) {
+            for (TShirt tShirt : bucket) {
+                tShirts0.add(tShirt);
+            }
+        }
+        for (TShirt tShirt : tShirts0) {
+            System.out.println(tShirt);
+        }
+        
+        
+        
+//        for (TShirt tShirt : randomTShirts) {
+//            buckets[tShirt.getColor().ordinal()].add(tShirt);
+//        }
+//        
+//        
+//        for (TShirt tShirt : randomTShirts) {
+//            buckets[tShirt.getFabric().ordinal()].add(tShirt);
+//        }
     }
 }
