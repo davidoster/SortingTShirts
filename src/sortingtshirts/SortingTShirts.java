@@ -9,9 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 import models.TShirt;
 import models.Timer;
-import printing.Print;
 import models.random.RandomTShirt;
+import printing.Print;
 import sort.Sort;
+
 /**
  *
  * @author George.Pasparakis
@@ -24,22 +25,22 @@ public class SortingTShirts {
     public static void main(String[] args) {
         Print p = new Print();
         Sort s = new Sort();
-        int numberOfRandomTShirts = 4;
+        int numberOfRandomTShirts = 7;
         System.out.println("Original Array");
         List<TShirt> randomTShirts = new ArrayList<>(numberOfRandomTShirts);
         for (int i = 0; i < numberOfRandomTShirts; i++) {
             randomTShirts.add(new RandomTShirt());
-//            System.out.println(randomTShirts.get(i));
+            System.out.println(randomTShirts.get(i));
         }
-        
+
         s.bucketSortTShirtsBySizeThenColorThenFabric(randomTShirts, 0);
-        
+
         System.out.println("\nBucket Sorted Array By Size Ascending");
         Timer bucketTimer = new Timer();
         s.bucketSortTShirts(randomTShirts, 0, 0);
         bucketTimer.stop();
         System.out.println("Bucket Sort Time: " + bucketTimer.elapsedTime());
-        
+
         System.out.println("\nBubble Sorted Array By Size Ascending");
         Timer bubbleTimer = new Timer();
         List<TShirt> bubbleSortRandomTShirtsBySize4 = s.bubbleSortTShirts(randomTShirts, 0, 0);

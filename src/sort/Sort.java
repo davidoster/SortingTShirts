@@ -6,11 +6,9 @@
 package sort;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import models.TShirt;
 import models.enums.Size;
-import models.random.RandomTShirt;
 
 /**
  *
@@ -360,48 +358,42 @@ public class Sort {
     }
 
     public void bucketSortTShirtsBySizeThenColorThenFabric(List<TShirt> randomTShirts, int sortingType) {
-        // Step 1 - Create buckets, Size.length
+        List<TShirt> tShirts = new ArrayList<>();
+
+        // Step 1 - Create noOfBuckets buckets, Size.length
         int noOfBuckets = Size.values().length;
 
-        // Step 1, create noOfBuckets buckets  
         List<TShirt>[] buckets = new ArrayList[noOfBuckets];
         for (int i = 0; i < noOfBuckets; i++) { // noOfBuckets
             buckets[i] = new ArrayList<TShirt>(); // initialize the buckets
         }
 
-        // Step 2, divide into buckets
+        // Step 2, divide into buckets, Sort By Size
         for (TShirt tShirt : randomTShirts) {
             buckets[tShirt.getSize().ordinal()].add(tShirt);
         }
-        
+
+        // Step 3, Sort By Color
+        for (List<TShirt> bucket : buckets) {
+            quickSortTShirts(bucket, 0, bucket.size() - 1, 1, 0);
+
+            // Step 4, Sort By Fabric
+            List<TShirt> bucketByFabric = new ArrayList<>(bucket);
+            bucketSortTShirts(bucketByFabric, 2, 0);
+            quickSortTShirts(bucketByFabric, 0, bucketByFabric.size() - 1, 2, 0);
+            bucket = bucketByFabric;
+        }
+
         // combine all the buckets to 1 List
-        List<TShirt> tShirts0 = new ArrayList<>();
-        List<TShirt>[] buckets0 = new ArrayList[noOfBuckets];
-        for (int i = 0; i < noOfBuckets; i++) { // noOfBuckets
-            buckets0[i] = new ArrayList<TShirt>(); // initialize the buckets
-        }
-        buckets0 = buckets;
-        for (int i = 0; i < noOfBuckets; i++) {
-            bucketSortTShirts(buckets0[i], 1, 0);
-        }
-        for (List<TShirt> bucket : buckets0) {
+        for (List<TShirt> bucket : buckets) {
             for (TShirt tShirt : bucket) {
-                tShirts0.add(tShirt);
+                tShirts.add(tShirt);
             }
         }
-        for (TShirt tShirt : tShirts0) {
+
+        System.out.println("\nBucket Sorted Array By Size Ascending and By Color Ascending");
+        for (TShirt tShirt : tShirts) {
             System.out.println(tShirt);
         }
-        
-        
-        
-//        for (TShirt tShirt : randomTShirts) {
-//            buckets[tShirt.getColor().ordinal()].add(tShirt);
-//        }
-//        
-//        
-//        for (TShirt tShirt : randomTShirts) {
-//            buckets[tShirt.getFabric().ordinal()].add(tShirt);
-//        }
     }
 }

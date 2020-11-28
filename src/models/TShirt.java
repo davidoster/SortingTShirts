@@ -5,22 +5,24 @@
  */
 package models;
 
+import java.util.Objects;
+import models.enums.Color;
 import models.enums.Fabric;
 import models.enums.Size;
-import models.enums.Color;
-import java.util.Objects;
 
 /**
  *
  * @author George.Pasparakis
  */
 public class TShirt {
+
     private String name;
     private Color color;
     private Size size;
     private Fabric fabric;
-    
-    public TShirt(){}
+
+    public TShirt() {
+    }
 
     public TShirt(String name, Color color, Size size, Fabric fabric) {
         this.name = name;
@@ -96,17 +98,15 @@ public class TShirt {
             return false;
         }
         return true;
-    }     
+    }
 
 //    @Override
 //    public int compareTo(Object o) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //    }
-
     @Override
     public String toString() {
-        return "TShirt{" + "name=" + name + ", color=" + color + ", size=" + size + ", fabric=" + fabric + '}';
+        return "TShirt{" + "name = " + name + ",\tsize = " + size + ",\tcolor = " + color + ",\tfabric = " + fabric + '}';
     }
-    
-    
+
 }
