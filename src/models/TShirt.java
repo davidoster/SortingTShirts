@@ -106,7 +106,7 @@ public class TShirt {
 //    }
     @Override
     public String toString() {
-        return "TShirt{" + "name = " + name + ",\tsize = " + size + ",\tcolor = " + color + ",\tfabric = " + fabric + '}';
+        return "TShirt{" + "name = " + name + ",\tsize = " + size + ",\tcolor = " + color + ",\tfabric = " + fabric + "}\n";
     }
 
 }

@@ -376,8 +376,10 @@ public class Sort {
         // Step 3, Sort By Color
         for (List<TShirt> bucket : buckets) {
             quickSortTShirts(bucket, 0, bucket.size() - 1, 1, 0);
+        }
 
-            // Step 4, Sort By Fabric
+        // Step 4, Sort By Fabric
+        for (List<TShirt> bucket : buckets) {
             List<TShirt> bucketByFabric = new ArrayList<>(bucket);
             bucketSortTShirts(bucketByFabric, 2, 0);
             quickSortTShirts(bucketByFabric, 0, bucketByFabric.size() - 1, 2, 0);
@@ -391,7 +393,7 @@ public class Sort {
             }
         }
 
-        System.out.println("\nBucket Sorted Array By Size Ascending and By Color Ascending");
+        System.out.println("\nBucket Sorted Array By Size Ascending, By Color Ascending And By Fabric Ascending");
         for (TShirt tShirt : tShirts) {
             System.out.println(tShirt);
         }
